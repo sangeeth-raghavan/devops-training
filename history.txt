@@ -1,0 +1,1000 @@
+   20  init 6
+   21  yum install ansible
+   22  su jenkins
+   23  ls
+   24  cd ansible-tower-setup-bundle-3.6.2-1/
+   25  cat inventory 
+   26  systemctl stop firewalld
+   27  openssl s_client -connect subscription.rhn.redhat.com:443 -CAfile /etc/rhsm/ca/redhat-uep.pem
+   28  init 6
+   29  ls
+   30  tar -xvzf ansible-tower-setup-bundle-3.6.2-1.tar.gz 
+   31  cd ansible-tower-setup-bundle-3.6.2-1/
+   32  ls
+   33  vim inventory 
+   34  ./setup.sh 
+   35  ansible-tower-service stop
+   36  yum remove ansible-tower\*
+   37  yum -y remove rabbitmq-server
+   38  yum remove rh-postgresql10-*
+   39  rm -rf /etc/tower /var/lib/{pgsql,awx,rabbitmq}
+   40  /var/opt/rh/rh-postgresql10/lib/pgsql/data
+   41  rm -rf /var/lib/tower-bundle
+   42  yum clean metadata --enablerepo="ansible-tower,ansible-tower-dependencies"
+   43  rpm -qa | grep ansible-tower
+   44  yum erase ansible-tower-*
+   45  vim inventory 
+   46  ./setup.sh 
+   47  pip --user jenkins install pywinrm
+   48  pip install pywinrm --user jenkins
+   49  yum update
+   50  yum install python-winrm
+   51  ansible -i hosts win -m win_ping
+   52  su jenkins
+   53  openssl s_client -connect subscription.rhsm.redhat.com:443 -CAfile /etc/rhsm/ca/redhat-uep.pem
+   54  yum check-update
+   55  openssl x509 -in /etc/pki/consumer/cert.pem -noout -text| grep 'Subject: CN'
+   56  curl -v --proxy-user user:password --proxy proxy.example.com:8080 https://subscription.rhn.redhat.com --cacert /etc/rhsm/ca/redhat-uep.pem
+   57   sudo -i && cd /tmp $ wget http://mirror.centos.org/centos/7/os/x86_64/Packages/python-rhsm-certificates-1.19.10-1.el7_4.x86_64.rpm
+   58  rpm2cpio python-rhsm-certificates-1.19.10-1.el7_4.x86_64.rpm | cpio -iv --to-stdout ./etc/rhsm/ca/redhat-uep.pem | tee /etc/rhsm/ca/redhat-uep.pem
+   59  yum install subscription-manager-rhsm
+   60  init 6
+   61  scp ansible-tower-setup-bundle-3.6.2-1.tar.gz root@192.168.17.219:/root
+   62  ifconfig
+   63  subscription-manager register --username harikrishnan.kg@rpsconsulting.in --password windows@123 --auto-attach
+   64  subscription-manager-gui
+   65  wget https://copr.fedoraproject.org/coprs/dgoodwin/subscription-manager/repo/epel-7/dgoodwin-subscription-manager-epel-7.repo -O /etc/yum.repos.d/dgoodwin-subscription-manager-epel-7.repo
+   66  yum install subscription-manager
+   67  yum install subscription-manager-gui
+   68  sudo subscription-manager repos --enable ansible-2.9-for-rhel-8-x86_64-rpms
+   69  sudo subscription-manager repos --enable rhel-7-server-ansible-2.9-rpms
+   70  ansible myhost --become -m raw -a "yum install -y python2"
+   71  yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+   72  subscription-manager repos --enable "rhel-*-optional-rpms" --enable "rhel-*-extras-rpms"  --enable "rhel-ha-for-rhel-*-server-rpms"
+   73  yum install epel-release
+   74  /etc/systemd/system/multi-user.target.wants/supervisord.service
+   75  vim /etc/systemd/system/multi-user.target.wants/supervisord.service
+   76  cp /etc/systemd/system/multi-user.target.wants/supervisord.service raj.txt
+   77  vim /etc/systemd/system/multi-user.target.wants/supervisord.service
+   78  vim
+   79  vim /etc/sysconfig/supervisord
+   80  systemctl daemon-reload 
+   81  ansible-tower-service restart
+   82  sudo ansible-tower-service stop
+   83  sudo ansible-tower-service start
+   84  vim /etc/systemd/system/multi-user.target.wants/supervisord.service
+   85  vim /etc/sysconfig/supervisord
+   86  yum install centos-release-scl
+   87  sudo supervisorctl status
+   88  sudo yum install maven
+   89  mvn -version
+   90  yum update
+   91  cd /home/jenkins/backup/
+   92  vim hosts 
+   93  ansible -i hosts win -m win_ping
+   94  init 0
+   95  rpm -ql subscription-manager-rhsm-certificates
+   96  ssh 192.168.17.206
+   97  ifconfig
+   98  sudo yum install git
+   99  sudo yum install -y yum-utils
+  100  sudo yum-config-manager     --add-repo     https://download.docker.com/linux/centos/docker-ce.repo
+  101  sudo yum install docker-ce docker-ce-cli containerd.io
+  102  sudo systemctl start docker
+  103  sudo docker run hello-world
+  104  docker ls
+  105  docker --help
+  106  docker container ls
+  107  git --version
+  108  ls
+  109  clear
+  110  pwd
+  111  mkdir DevOps
+  112  cd DevOps/
+  113  mkdir Day1
+  114  tree
+  115  yum install -y         tree
+  116  tree
+  117  cd Day1/
+  118  tree
+  119  cd
+  120  tree
+  121  tree DevOps/
+  122  cd DevOps/
+  123  cd Day1/
+  124  pwd
+  125  clear
+  126  vim fruits.txt
+  127  gedit fruits.txt 
+  128  cat fruits.txt 
+  129  git config --global user.name "Sangeeth Raghavan"
+  130  git config --global user.email "sangtycoon@gmail.com"
+  131  git config --liiiist
+  132  git config --list
+  133  git config --global user.email "sangtycoon@gmail.comm"
+  134  git config --list
+  135  git config --global user.email "sangtycoon@gmail.com"
+  136  git config --list
+  137  git config --global user.name "Sangeeth"
+  138  git config --list
+  139  git init
+  140  ls
+  141  ls -a
+  142  tree .git/
+  143  git status
+  144  git add fruits.txt
+  145  git status
+  146  history
+  147  clear
+  148  git status
+  149  git rm fruits.txt
+  150  git rm -f fruits.txt
+  151  git status
+  152  git add fruits.txt
+  153  ls
+  154  ls -a
+  155  vim fruits.txt
+  156  ls
+  157  git add fruits.txt
+  158  git status
+  159  git commit -m "Initial Commit"
+  160  git status
+  161  vim edit fruits.txt 
+  162  ls
+  163  vvvvvvim fr
+  164  vim fruits.txt 
+  165  cat fruits.txt 
+  166  vim fruits.txt 
+  167  vim edit fruits.txt 
+  168  ls
+  169  cat fruits.txt 
+  170  git status
+  171  gedit fruits.txt 
+  172  git status 
+  173  git add fruits.txt
+  174  git status 
+  175  git commit -m "Added Grapes"
+  176  git status
+  177  git log
+  178  git status
+  179  git add fruits.txt
+  180  git status
+  181  git status fruits.txt
+  182  gedit fruits.txt 
+  183  git status fruits.txt
+  184  git add fruits.txt
+  185  git status fruits.txt
+  186  git commit -m "Added Watermelon"
+  187  git log
+  188  clear
+  189  git remote add origin https://github.com/sangeeth-github/DevOps.git
+  190  ppppwd
+  191  pwd
+  192  git push -r origin master
+  193  git push -u origin master
+  194  history
+  195  clear
+  196  git pull
+  197  git push -u origin master
+  198  get remote -v
+  199  git remote -v
+  200  git push -v
+  201  git status -v
+  202  git remote -v
+  203  man git remote
+  204  git remote --help
+  205  git remote man
+  206  clear
+  207  cd
+  208  ls
+  209  docker --version
+  210  docker images
+  211  docker image list
+  212  systemctl enable docker 
+  213  systemctl start docker 
+  214  docker image list
+  215  systemctl status docker
+  216  docker images
+  217  docker info
+  218  docker image list
+  219  cd /var/lib/docker
+  220  ls
+  221  cd overlay2/
+  222  ls
+  223  cd
+  224  cd /var/lib/docker/
+  225  ls
+  226  cd overlay2/
+  227  ls
+  228  tree
+  229  pwd
+  230  cd ..
+  231  ls
+  232  docker images
+  233  cd overlay2/
+  234  ls
+  235  cd 72afd30c40703f655886d3790f44732bbf3c852c14ba16951065f574d015d8b4
+  236  ls
+  237  cd ..
+  238  cd c5be8c54fe9ada921f986b73a74b7e53df1bdd377fd424870a3bd115d85b834d/
+  239  ls
+  240  cd ..
+  241  ls
+  242  cd image/
+  243  ls
+  244  cd overlay2/
+  245  ls
+  246  cat repositories.json 
+  247  cat bf756fb1ae65adf866bd8c456593cd24beb6a0a061dedf42b26a993176745f6b
+  248  docker inspect hello-world:latest 
+  249  cd
+  250  docker run -it --name ubuntu1 --hostname ubuntu1 ubuntu:16.04 /bin/bash
+  251  docker ps -1
+  252  docker ps -a
+  253  docker container ps -1
+  254  docker container ps -a
+  255  docker container list
+  256  docker docker ps
+  257  docker ps
+  258  docker container run -dit --name ubuntu2 --hostname ubuntu2 ubuntu:16.04 
+  259  docker ps
+  260  docker container stop ubuntu1
+  261  docker ps
+  262  docker container start ubuntu1
+  263  docker ps
+  264  docker exec ubuntu2 /bin/bash
+  265  docker exec ubuntu2 /bin/bash/
+  266  ls
+  267  docker exec -it ubuntu2 /bin/bash/
+  268  docker exec -it ubuntu2 /bin/bash
+  269  docker inspect ubuntu2 | grep IPA
+  270  docker inspect ubuntu1 | grep IPA
+  271  ifconfig
+  272  exit
+  273  ls
+  274  cd ..
+  275  ls
+  276  cd 
+  277  ls
+  278  cd DevOps/
+  279  ls
+  280  cd cda
+  281  cd Day1/
+  282  mkdir Docker
+  283  cd Docker/
+  284  vim CustomDocker
+  285  cat CustomDocker 
+  286  docker build -t DevOps/ubuntu .
+  287  docker build --tag DevOps/ubuntu .
+  288  vim CustomDocker 
+  289  gedit CustomDocker 
+  290  docker build -t devops/ubuntu .
+  291  vim Dockerfile
+  292  cat Dockerfile 
+  293  docker build -t devops/ubuntu .
+  294  gedit Dockerfile 
+  295  docker build -t devops/ubuntu .
+  296  docker image list
+  297  cat Dockerfile 
+  298  docker image list
+  299  docker container ps
+  300  docker exec -it ubuntu1 /bin/bash
+  301  docker run -it --hostname ubuntu3 devops/ubuntu /bin/bash
+  302  cat Dockerfile 
+  303  gedit Dockerfile 
+  304  docker image list
+  305  docker build -t devops/ubuapa .
+  306  cat Dockerfile 
+  307  docker image list
+  308  docker run -dit --hostname webapp devops/ubuapa 
+  309  docker exec -it webapp
+  310  docker exec -it webapp /bin/bash
+  311  docker container list
+  312  docker exec -it exciting_visvesvaraya /bin/bash
+  313  docker run -d --name artifact --hostname artifact pivotalservices/artifactory-resource
+  314  docker container ps
+  315  docker container ps -a
+  316  docker ps -a
+  317  docker rm *
+  318  docker ps
+  319  docker rm ubuntu1
+  320  docker container stop ubuntu1 ubuntu2 exciting_visvesvaraya 
+  321  docker container rm ubuntu1 ubuntu2 exciting_visvesvaraya 
+  322  docker ps -a
+  323  cd 
+  324  ls
+  325  cat raj.txt 
+  326  ls
+  327  ls -a
+  328  exit
+  329  docker image list
+  330  docker container list
+  331  docker container status
+  332  ps -ef | grep ubuntu1
+  333  kill -9 28911
+  334  cd 
+  335  cd DevOps/
+  336  cd Day1/
+  337  cd Docker/
+  338  ls
+  339  cat CustomDocker 
+  340  mvn --version
+  341  cd
+  342  ls
+  343  cd Downloads/
+  344  ls
+  345  ls -a
+  346  exit
+  347  ls
+  348  ls -a
+  349  ls
+  350  tar -xvf jfrog-artifactory-oss-7.4.3-linux.tar.gz jfrog-artifactory-oss-7.4.3-linux.tar.gz jfrog-artifactory-oss-7.4.3-linux.tar.gz jfrog-artifactory-oss-7.4.3-linux.tar.gz jfrog-artifactory-oss-7.4.3-linux.tar.gz jfrog-artifactory-oss-7.4.3-linux.tar.gz jfrog-artifactory-oss-7.4.3-linux.tar.gz jfrog-artifactory-oss-7.4.3-linux.tar.gz jfrog-artifactory-oss-7.4.3-linux.tar.gz jfrog-artifactory-oss-7.4.3-linux.tar.gz jfrog-artifactory-oss-7.4.3-linux.tar.gz jfrog-artifactory-oss-7.4.3-linux.tar.gz jfrog-artifactory-oss-7.4.3-linux.tar.gz jfrog-artifactory-oss-7.4.3-linux.tar.gz jfrog-artifactory-oss-7.4.3-linux.tar.gz jfrog-artifactory-oss-7.4.3-linux.tar.gz jfrog-artifactory-oss-7.4.3-linux.tar.gz jfrog-artifactory-oss-7.4.3-linux.tar.gz jfrog-artifactory-oss-7.4.3-linux.tar.gz jfrog-artifactory-oss-7.4.3-linux.tar.gz jfrog-artifactory-oss-7.4.3-linux.tar.gz jfrog-artifactory-oss-7.4.3-linux.tar.gz jfrog-artifactory-oss-7.4.3-linux.tar.gz jfrog-artifactory-oss-7.4.3-linux.tar.gz jfrog-artifactory-oss-7.4.3-linux.tar.gz jfrog-artifactory-oss-7.4.3-linux.tar.gz jfrog-artifactory-oss-7.4.3-linux.tar.gz jfrog-artifactory-oss-7.4.3-linux.tar.gz jfrog-artifactory-oss-7.4.3-linux.tar.gz jfrog-artifactory-oss-7.4.3-linux.tar.gz jfrog-artifactory-oss-7.4.3-linux.tar.gz jfrog-artifactory-oss-7.4.3-linux.tar.gz jfrog-artifactory-oss-7.4.3-linux.tar.gz jfrog-artifactory-oss-7.4.3-linux.tar.gz jfrog-artifactory-oss-7.4.3-linux.tar.gz jfrog-artifactory-oss-7.4.3-linux.tar.gz jfrog-artifactory-oss-7.4.3-linux.tar.gz jfrog-artifactory-oss-7.4.3-linux.tar.gz jfrog-artifactory-oss-7.4.3-linux.tar.gz jfrog-artifactory-oss-7.4.3-linux.tar.gz jfrog-artifactory-oss-7.4.3-linux.tar.gz jfrog-artifactory-oss-7.4.3-linux.tar.gz jfrog-artifactory-oss-7.4.3-linux.tar.gz jfrog-artifactory-oss-7.4.3-linux.tar.gz jfrog-artifactory-oss-7.4.3-linux.tar.gz jfrog-artifactory-oss-7.4.3-linux.tar.gz jfrog-artifactory-oss-7.4.3-linux.tar.gz jfrog-artifactory-oss-7.4.3-linux.tar.gz jfrog-artifactory-oss-7.4.3-linux.tar.gz jfrog-artifactory-oss-7.4.3-linux.tar.gz jfrog-artifactory-oss-7.4.3-linux.tar.gz jfrog-artifactory-oss-7.4.3-linux.tar.gz 
+  351  ls
+  352  tar -xvf jfrog-artifactory-oss-7.4.3-linux.tar.gz
+  353  ls
+  354  cd artifactory-oss-7.4.3/
+  355  ls
+  356  cd app/
+  357  ls
+  358  cd bin/
+  359  ls
+  360  cd
+  361  cd Dw
+  362  cd Doww
+  363  cd Downloads/
+  364  ls
+  365  ls -a
+  366  exit
+  367  ls
+  368  rm artifactory-oss-7.4.3/
+  369  rmdir artifactory-oss-7.4.3/
+  370  rmdir -f artifactory-oss-7.4.3/
+  371  rmdir --help
+  372  rmdir --ignore artifactory-oss-7.4.3/
+  373  ls
+  374  rmdir --ignore artifactory-oss-7.4.3/
+  375  ls
+  376  rmdir --ignore-fail artifactory-oss-7.4.3/
+  377  ls
+  378  cddddd artifactory-oss-7.4.3/
+  379  cd artifactory-oss-7.4.3/
+  380  ls
+  381  cd ..
+  382  rmdir -r artifactory-oss-7.4.3/
+  383  rm -rf artifactory-oss-7.4.3/
+  384  ls
+  385  tar xvfz jfrog-artifactory-oss-7.4.3-linux.tar.gz
+  386  ls
+  387  cd artifactory-oss-7.4.3/
+  388  cd app/
+  389  ls
+  390  cd bin/
+  391  ls
+  392  cd ..
+  393  ls
+  394  cd /var/
+  395  ls
+  396  cd etc
+  397  cd ..
+  398  ls
+  399  exit
+  400  ls
+  401  cd DevOps/
+  402  ls
+  403  cd devops-hyd-may-2020/
+  404  ls
+  405  cd Day2/hello/
+  406  ls
+  407  lsls
+  408  ls
+  409  cat settings.xml 
+  410  exit
+  411  pwd
+  412  cd /root
+  413  ls
+  414  cd DevOps/
+  415  ls
+  416  cd devops-hyd-may-2020/
+  417  cd Day3
+  418  ls
+  419  cd ansible/
+  420  cd refactoring/
+  421  ls
+  422  cd after-refactoring/
+  423  ls
+  424  vim install-apache2-ubuntu.yml 
+  425  cd ..
+  426  cd before-refactoring/
+  427  ls
+  428  vim install-tomcat.yml 
+  429  ansible-playbook install-tomcat.yml 
+  430  ls
+  431  vim install-tomcat.yml 
+  432  cd /etc/yum.repos.d
+  433  ls
+  434  vim epel.repo 
+  435  vim install-tomcat.yml 
+  436  rm install-tomcat.yml 
+  437  cd /root/DevOps/
+  438  ls
+  439  cd devops-hyd-may-2020/Day3/ansible/
+  440  ls
+  441  cd refactoring/
+  442  ls
+  443  cd before-refactoring/
+  444  ls
+  445  ansible-playbook install-tomcat.yml 
+  446  cd /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6
+  447  cd /etc/pki/rpm-gpg
+  448  ls
+  449  cd RPM-GPG-KEY-EPEL-7
+  450  vim RPM-GPG-KEY-EPEL-7
+  451  cd ..
+  452  pwd
+  453  cd /root/DevOps/
+  454  ls
+  455  mkdir Day4
+  456  cd Day4
+  457  mkdir recodirstructure
+  458  cd recodirstructure/
+  459  vim hosts
+  460  docker ps
+  461  ansible -i hosts ping
+  462  ansible -i hosts -m ping
+  463  ansible -i hosts -m ping.py
+  464  ansible all -m ping
+  465  ansible -i hosts -m ping
+  466  docker ps
+  467  ansible ubuntu001 -m ping
+  468  cat hosts
+  469  cd ..
+  470  cd devops-hyd-may-2020/
+  471  git pull
+  472  cd Day4
+  473  ls
+  474  cd AnsibleRecommendedDirStructure/
+  475  ls
+  476  ansible all -m ping
+  477  ansible all -m hostname
+  478  cd 
+  479  cd DevOps/Day4
+  480  ls
+  481  mkdir winnodes
+  482  cd winnodes/
+  483  vim hosts
+  484  pip install pywinrm
+  485  vim hosts 
+  486  cd
+  487  ls
+  488  cd ansible-tower-setup-bundle-3.6.2-1/
+  489  ls
+  490  clea
+  491  clear
+  492  ls
+  493  vim setup.sh
+  494  vim roles
+  495  vim inventory 
+  496  ls
+  497  cd
+  498  ls
+  499  cd Desktop/
+  500  ls
+  501  cd ..
+  502  cd Downloads/
+  503  ls
+  504  cd ..
+  505  ls
+  506  exit
+  507  cd /root/DevOps/
+  508  ls
+  509  cd devops-hyd-may-2020/
+  510  ls
+  511  cd Day2
+  512  ls
+  513  cd hello/
+  514  ls
+  515  pwd
+  516  cd ..
+  517  ls
+  518  cd ..
+  519  git pull
+  520  ls
+  521  cd Day2
+  522  ls
+  523  cd hello/
+  524  ls
+  525  cp settings.xml /etc/maven/settings.xml 
+  526  cd ..
+  527  git pull
+  528  cd Day2
+  529  cd hello/
+  530  ls
+  531  cat settings.xml 
+  532  ls
+  533  cp settings.xml /etc/maven/settings.xml 
+  534  cp settings.xml /etc/maven/settings.xml
+  535  ifconfig
+  536  ls
+  537  mvn help:effective-settings
+  538  cd
+  539  ansible --version
+  540  cd /usr/lib/python2.7/site-packages/ansible
+  541  ls
+  542  fine . -name "ping.py"
+  543  find . -name "ping.py"
+  544  cat modules/system/ping.py
+  545  ansible-doc --list
+  546  ansible-doc --list | wwwwwc
+  547  ansible-doc --list | wc
+  548  cd
+  549  ls
+  550  cd DevOps/
+  551  ls
+  552  cd Day2
+  553  git clone https://github.com/tektutor/ubuntu-ansible.git
+  554  ls
+  555  cd ubuntu-ansible/
+  556  ls
+  557  cat Dockerfile 
+  558  gedit Dockerfile 
+  559  ls
+  560  gedit Dockerfile 
+  561  cat Dockerfile 
+  562  ssh-keygen
+  563  cp /root/.ssh/id_rsa.pub authorized_keys
+  564  ls
+  565  cat Dockerfile | grep authorized_keys
+  566  docker build -t devops-tutor/ansible-ubuntu .
+  567  docker image ls
+  568  cat Dockerfile 
+  569  docker run -d --name ansiubu --hostname ansiubu -p 2001:22 -p 8001:80 devops-tutor/ansible-ubuntu 
+  570  docker container ls
+  571  docker container ps
+  572  docker run -d --name ansiubu2 --hostname ansiubu -p 2002:22 -p 8002:80 devops-tutor/ansible-ubuntu 
+  573  docker container ps
+  574  ssh -p 2001 root@localhost
+  575  ls
+  576  cd ..
+  577  ls
+  578  mkdir ansible
+  579  vim hosts
+  580  ansible -i hosts all -m ping
+  581  cat hosts
+  582  find /root "ansible.cfg"
+  583  find /etc "ansible.cfg"
+  584  ls /etc | grep ansible.cfg
+  585  find /etc/ansible ansible.cfg
+  586  find /etc/ansible ansible*
+  587  ls
+  588  cd ubuntu-ansible/
+  589  ls
+  590  cat Dockerfile 
+  591  ssh -p 2001 root@localhost
+  592  ssh -p 2002 root@localhost
+  593  ssh -p 2001 root@localhost
+  594  docker ps
+  595  docker container stop --help
+  596  docker container stop ansiubu2
+  597  docker rm ansiubu2
+  598  docker ps
+  599  docker ps -1
+  600  docker ps -a
+  601  docker run -d --name ansiubu2 --hostname ansiubu2 -p 2002:22 -p 8002:80 devops-tutor/ansible-ubuntu 
+  602  docker container ps
+  603  ssh -p 2002 root@localhost
+  604  docker inspect ansiubu | grep IPa
+  605  docker inspect ansiubu | grep IPA
+  606  docker inspect ansiubu2 | grep IPA
+  607  ls
+  608  gedit Dockerfile 
+  609  ansible -i hosts all -m ping
+  610  ls
+  611   cd ..
+  612  ls
+  613  cd ansible/
+  614  ls
+  615  cd ..
+  616  ansible -i hosts all -m ping
+  617  ansible -i hosts all -m command -a "uptime"
+  618  gedit /etc/ansible/ansible.cfg 
+  619  ansible -i hosts all -m command -a "uptime"
+  620  ls
+  621  mv hosts /ansible/
+  622  mv hosts /ansible
+  623  ls
+  624  cd ansible/
+  625  ls
+  626  ls -a
+  627  cd ..
+  628  ls
+  629  mv hosts /ansible
+  630  ansible -i hosts all -m command -a "uptime"
+  631  cd ansible/
+  632  ls -a
+  633  vim hosts
+  634  ls
+  635  vim file
+  636  vim newfile.yaml
+  637  ls
+  638  gedit newfile.yaml 
+  639  vim ping.yml
+  640  vim hosts 
+  641  ansible -i hosts all -m ping
+  642  vim hosts 
+  643  ansible -i hosts all -m ping
+  644  vim /etc/ansible/ansible.cfg
+  645  ls
+  646  ansible-playbook -i hosts ping.yml 
+  647  gedit /etc/ansible/ansible.cfg 
+  648  gedit /etc/ansible/ansible.cfg
+  649  ansible-playbook -i hosts ping.yml 
+  650  gedit /etc/ansible/ansible.cfg
+  651  ansible-playbook -i hosts ping.yml 
+  652  gedit /etc/ansible/ansible.cfg
+  653  ansible-playbook -i hosts ping.yml 
+  654  gedit /etc/ansible/ansible.cfg
+  655  ansible-playbook -i hosts ping.yml 
+  656  ls
+  657  vim ping.yml
+  658  ansible-playbook -i hosts ping.yml
+  659  vim ping.yml 
+  660  vim ping.yml
+  661  ansible-playbook -i hosts ping.yml
+  662  vim ping.yml
+  663  ansible-playbook -i hosts ping.yml
+  664  ls
+  665  vim hosts 
+  666  ansible-playbook -i hosts ping.yml
+  667  ls
+  668  pwd
+  669  cd ..
+  670  ls
+  671  cd devops-hyd-may-2020/
+  672  ls
+  673  cd ..
+  674  mkdir Day3
+  675  ls
+  676  cd Day2
+  677  ls
+  678  pwd
+  679  cp * /root/DevOps/Day3
+  680  cd ..
+  681  cd Day3
+  682  ls
+  683  git clone https://github.com/tektutor/centos-sshd-passwordless.git
+  684  ls
+  685  cd centos-sshd-passwordless/
+  686  ls
+  687  vim Dockerfile 
+  688  cp /root/.ssh/id_rsa.pub authorized_keys
+  689  ls
+  690  docker build -t devops-tutor/ansible-centos .
+  691  vim Dockerfile 
+  692  docker run -d --name ansicentos1 --hostname ansicentos1 -p 2003:22 -p 8003:80 devops-tutor/ansible-centos
+  693  docker run -d --name ansicentos2 --hostname ansicentos2 -p 2004:22 -p 8004:80 devops-tutor/ansible-centos
+  694  ssh -p 2003 root@localhost
+  695  ssh -p 2004 root@localhost
+  696  ls
+  697  cd ..
+  698  ls
+  699  cp /root/DevOps/Day2 .
+  700  cp /root/DevOps/Day2/* .
+  701  cp -avr /root/DevOps/Day2 .
+  702  ls
+  703  cp -avr /root/DevOps/Day2/* .
+  704  ls
+  705  rmdir Day2/
+  706  rm -rf Day2/
+  707  ls
+  708  cd ansible/
+  709  ls
+  710  clear
+  711  ls
+  712  vim hosts 
+  713  ansible -i hosts all -m ping
+  714  ls
+  715  vim install-tomcat.yml
+  716  vim hosts 
+  717  ansible-playbook -i hosts install-tomcat.yml 
+  718  cat install-tomcat.yml 
+  719  docker ps
+  720  ansible -i hosts ansiubu -m shell -a "hostname -i"
+  721  ansible -i hosts ansiubu -m shell -a "service apache2 status"
+  722  ansible -i hosts ansiubu -m shell -a "service apache2 start"
+  723  curl http://192.168.17.216:8001/
+  724  clear
+  725  vim install-tomcat.yml 
+  726  ansible-playbook -i hosts install-tomcat.yml 
+  727  docker exec -it ansiubu bash
+  728  docker cp ansiubu:/etc/apach2/sites-available/000-default.conf .
+  729  docker exec -it ansiubu bash
+  730  docker cp ansiubu:/etc/apache2/sites-available/000-default.conf .
+  731  vim 000-default.conf 
+  732  ls
+  733  docker cp ansiubu:/etc/apache2/apache2.conf .
+  734  ls
+  735  vim apache2.conf 
+  736  vim install-tomcat.yml 
+  737  ansible-playbook -i hosts install-tomcat.yml
+  738  docker exec -it ansiubu2 bash
+  739  vim install-tomcat.yml 
+  740  vim index.html.j2
+  741  ls
+  742  ansible-playbook -i hosts install-tomcat.yml -vvvv
+  743  vim install-tomcat.yml 
+  744  gedit install-tomcat.yml 
+  745  ansible-playbook -i hosts install-tomcat.yml -vvvv
+  746  vim index.html.j2 
+  747  vim install-tomcat.yml 
+  748  ls
+  749  vim ping.yml 
+  750  vim install-tomcat.yml 
+  751  ansible-playbook -i hosts install-tomcat.yml 
+  752  vim install-tomcat.yml 
+  753  ansible-playbook -i hosts install-tomcat.yml
+  754  vim install-tomcat.yml 
+  755  ansible-doc list | grep docker
+  756  ansible-doc -list | grep docker
+  757  ansible-doc -list | wc
+  758  ansible-doc -l | wc
+  759  ansible-doc -l | docker
+  760  ansible-doc -l | grep docker
+  761  systemctl stop docker
+  762  docker images
+  763  vim install-tomcat.yml 
+  764  vim ping.yml 
+  765  ansible-playbook -i hosts ping.yml 
+  766  docker container ls
+  767  docker ps
+  768  docer image ls
+  769  docker images
+  770  docker run -d --name ubu1 --hostname ubu1 -p 2001:22 -p 8001:80 devops-tutor/ansible-ubuntu
+  771  docker run -d --name ubu2 --hostname ubu2 -p 2002:22 -p 8002:80 devops-tutor/ansible-ubuntu
+  772  vim ping.yml 
+  773  vim hosts 
+  774  ansible-playbook -i hosts ping.yml 
+  775  vim install-tomcat.yml 
+  776  ansible-playbook - hosts install-tomcat.yml
+  777  ansible-playbook -i hosts install-tomcat.yml
+  778  vim install-tomcat.yml
+  779  gedit install-tomcat.yml 
+  780  gedit install-mine.yml
+  781  ansible-playbook -i hosts install-mine.yml
+  782  gedit install-mine.yml 
+  783  ls
+  784  vim index.html.j2 
+  785  gedit index.html.j2 
+  786  gedit index2.html.j2 
+  787  gedit index.html.j2 
+  788  ansible-playbook -i hosts install-mine.yml 
+  789  docker ps
+  790  docker rm -f ubu1 ubu2
+  791  docker ps
+  792  ls
+  793  vim install-tomcat.yml 
+  794  ansible-playbook -i hosts install-tomcat.yml 
+  795  vim install-tomcat.yml 
+  796  vim install-tomcat.yml
+  797  ansible-playbook -i hosts install-tomcat.yml 
+  798  docker ps
+  799  vim install-tomcat.yml 
+  800  ansible-playbook -i hosts install-tomcat.yml 
+  801  docker ps
+  802  vim install-tomcat.yml 
+  803  ansible-playbook -i hosts install-tomcat.yml 
+  804  vim install-tomcat.yml 
+  805  ansible-playbook -i hosts install-tomcat.yml 
+  806  docker ps
+  807  vim hosts 
+  808  ansible-playbook -i hosts install-tomcat.yml 
+  809  vim hosts 
+  810  ansible-playbook -i hosts install-tomcat.yml 
+  811  ls
+  812  vim ansible.cfg
+  813  ansible-playbook install-tomcat.yml 
+  814  vim hosts 
+  815  ansible-playbook install-tomcat.yml 
+  816  vim install-tomcat.yml 
+  817  ansible-playbook install-tomcat.yml 
+  818  vim install-tomcat.yml 
+  819  ansible-playbook install-tomcat.yml 
+  820  ls
+  821  vim install-tomcat.yml
+  822  docker ps
+  823  ansible -i ubu001
+  824  vim install-tomcat.yml 
+  825  vim install-tomcat.yml
+  826  ansible-playbook install-tomcat.yml
+  827  vim install-tomcat.yml
+  828  ansible-playbook install-tomcat.yml
+  829  ls
+  830  vim ansible.cfg 
+  831  ls
+  832  vim ansible.cfg 
+  833  ansible-playbook install-tomcat.yml
+  834  vim ansible.cfg 
+  835  ansible-playbook install-tomcat.yml
+  836  vim ansible.cfg 
+  837  ansible-playbook install-tomcat.yml
+  838  vim install-tomcat.yml 
+  839  ansible-playbook install-tomcat.yml
+  840  vim install-tomcat.yml 
+  841  ansible-playbook install-tomcat.yml 
+  842  ls
+  843  vat ansible.cfg 
+  844  cat ansible.cfg 
+  845  vim ansible.cfg 
+  846  ansible-playbook install-tomcat.yml 
+  847  vim install-tomcat.yml 
+  848  pwd
+  849  cd ..
+  850  ls
+  851  cd devops-hyd-may-2020/
+  852  ls
+  853  cd Dau3
+  854  cd Day3
+  855  ls
+  856  cd ansible/
+  857  ls
+  858  cd refactoring/
+  859  ls
+  860  cd after-refactoring/
+  861  ls
+  862  vim provision-ubuntu-containers.yml 
+  863  vim provision-centos-containers.yml 
+  864  vim install-apache2-ubuntu.yml 
+  865  vim configure-apache2-ubuntu.yml 
+  866  vim common-tasks.yml 
+  867  vim test-ubuntu-boxes.yml 
+  868  vim install-apache2-centos.yml 
+  869  clear
+  870  ls
+  871  ansible-playbook install-tomcat.yml
+  872  exit
+  873  ls
+  874  ./install-service.sh 
+  875  cd ..
+  876  ls
+  877  cd conf/
+  878  ls
+  879  cat xl-release-licence.lic 
+  880  cd ..
+  881  ./install-service.sh 
+  882  ls
+  883  cd bin/
+  884  ls
+  885  ./install-service.sh 
+  886  exitls
+  887  ls
+  888  cd ..
+  889  ls
+  890  cd conf/
+  891  ls
+  892  cat xl-release-licence.lic 
+  893  cd ..
+  894  cd bin/
+  895  ls
+  896  exit
+  897  ls
+  898  ./install-service.sh 
+  899  cd .
+  900  cd ..
+  901  ls
+  902  cd conf/
+  903  ls
+  904  rm xl-release-licence.lic 
+  905  ls
+  906  vim xl-release.license
+  907  cd ..
+  908  cd bin/
+  909  ls
+  910  exit
+  911  ./install-service.sh 
+  912  ls
+  913  cd ..
+  914  ls
+  915  cd conf/
+  916  ls
+  917  vim xl-release-license.lic
+  918  cd ..
+  919  cd bin/
+  920  cd con
+  921  cd ..
+  922  cd conf/
+  923  ls
+  924  cd ..
+  925  cd bin/
+  926  ls
+  927  exit
+  928  docker ps
+  929  history
+  930  cd ..
+  931  cd
+  932  cd DevOps/
+  933  ls
+  934  cd devops-hyd-may-2020/
+  935  ls
+  936  cd Day3
+  937  ls
+  938  cd ansible/
+  939  ls
+  940  cd refactoring/
+  941  ls
+  942  cd before-refactoring/
+  943  ls
+  944  pwd
+  945  cd
+  946  cd DevOps/
+  947  ls
+  948  git status
+  949  ls
+  950  cd Day1
+  951  ls
+  952  cd ..
+  953  git remote add origin https://github.com/sangeeth-github/DevOps.git
+  954  git
+  955  git status
+  956  git remote add origin https://github.com/sangeeth-github/DevOps.git
+  957  git init
+  958  git remote add origin https://github.com/sangeeth-github/DevOps.git
+  959  git push origin master
+  960  git init
+  961  git commit -m "Commit"
+  962  git add Day1/ Day2/ Day3/ Day4/ devops-hyd-may-2020/
+  963  git commit -m "Commit"
+  964  git remote add origin https://github.com/sangeeth-github/devops-training.git
+  965  git push -u origin master
+  966  git pull
+  967  cd ..
+  968  mkdir devops-training
+  969  cd devops-training/
+  970  cp -R /root/DevOps/ .
+  971  ls
+  972  cd DevOps/
+  973  ls
+  974  cd ..
+  975  git init
+  976  git add DevOps/
+  977  git commit -m "Commit"
+  978  git remote add origin https://github.com/sangeeth-github/devops-training.git
+  979  git push -u origin master
+  980  ls
+  981  cd DevOps/
+  982  ls
+  983  mkdir cloned
+  984  cd cloned/
+  985  pwd
+  986  cp -R /root/devops-training/DevOps/devops-hyd-may-2020/* .
+  987  ls
+  988  cd ..
+  989  ls
+  990  git commit -m "2ndCommit"
+  991  ls
+  992  git add DevOps/cloned/
+  993  git commit -m "2ndCommit"
+  994  git push origin master
+  995  ls
+  996  cd
+  997  cd Desktop/
+  998  ls
+  999  jenkins
+ 1000  exit
+ 1001  ls
+ 1002  cd
+ 1003  ls
+ 1004  cd ansible-tower-setup-bundle-3.6.2-1/
+ 1005  ls
+ 1006  vim inventory 
+ 1007  vim README.md 
+ 1008  git remot -v
+ 1009  git remote -v
+ 1010  cd ..
+ 1011  ls
+ 1012  cd devops-training/
+ 1013  ls
+ 1014  git remote -v
+ 1015  ls -a
+ 1016  history
+ 1017  docker image inspect
+ 1018  ls
+ 1019  history > history.txt

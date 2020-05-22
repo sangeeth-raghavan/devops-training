@@ -1,0 +1,9 @@
+- name: Demnonstrates use of list variable and looping list data
+  hosts: ubuntu
+  vars:
+    software_tools:
+        - vim
+        - tree
+        -  net-tools
+  tasks:
+    

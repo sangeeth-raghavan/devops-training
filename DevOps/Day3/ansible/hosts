@@ -1,0 +1,21 @@
+[all]
+ubu1 ansible_port=2001
+ubu2 ansible_port=2002
+ubu3 ansible_port=2003
+ubu4 ansible_port=2004
+
+centos5 ansible_port=2005
+centos6 ansible_port=2006
+centos7 ansible_port=2007
+centos8 ansible_port=2008
+
+[all:vars]
+ansible_user=root
+ansible_host=localhost
+ansible_private_key_file=/root/.ssh/id_rsa
+
+[prod]
+ubu2
+
+[dev]
+ubu1

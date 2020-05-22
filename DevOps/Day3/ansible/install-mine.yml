@@ -1,0 +1,38 @@
+- name : This play will install, configure and deploy webpage into tomcat
+  hosts: all
+  vars: 
+    provisioner_tool: Docker
+    cfg_mgr_tool: Ansible
+
+  tasks:
+     - name: Install apache2 in ubuntu machine
+       apt: name=apache2 state=latest update_cache=yes
+
+     - name: Start apache2 service
+       service: name=apache2 state=started
+        
+     - name: Create the custom web root foled for apache2 server
+       file: path=/var/html state=directory mode=0777
+
+     - name: Configure apache web root folder
+       copy: src=000-default.conf dest=/etc/apache2/sites-available/000-default.conf
+
+     - name: Grant permission for custom root folder
+       copy: src=apache2.conf dest=/etc/apache2/apache2.conf
+
+     - name: Restart apache2 service
+       service: name=apache2 state=restarted
+ 
+
+     - name: Deploy our own custom html page
+       template: src=index.html.j2 dest=/var/html/index.html
+
+
+- name: This play will test apache2 deployments
+  hosts: localhost
+  tasks:
+    - name: Navigate to apache2 webpage
+      shell: "curl http://localhost:800{{item}}"
+      with_sequence: start=1 end=2
+
+

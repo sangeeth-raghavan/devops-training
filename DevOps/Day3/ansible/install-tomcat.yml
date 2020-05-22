@@ -1,0 +1,89 @@
+- name: This play will automate the provisioning of docker containers
+  hosts: localhost
+  tasks:
+    - name: Provsion Ubuntu docker container
+      docker_container:
+         docker_host: tcp://0.0.0.0:4236
+         name: "centos{{item}}"
+         image: devops-tutor/ansible-centos
+         state: started
+         ports:
+            - "2{{item}}:22"
+            - "8{{item}}:80"
+      with_sequence: start=5 end=8 format="%03x"
+
+
+
+- name : This play will install, configure and deploy webpage into tomcat
+  hosts: all
+  vars: 
+    provisioner_tool: Docker
+    cfg_mgr_tool: Ansible
+
+  tasks:
+     - name: Install apache2 in ubuntu machine
+       when: ansible_distribution == "Ubuntu" and ansible_os_family == "Debian"
+       apt: name=apache2 state=latest update_cache=yes
+
+     - name: Start apache2 service
+       when: ansible_distribution == "Ubuntu" and ansible_os_family == "Debian"
+       service: name=apache2 state=started
+        
+     - name: Create the custom web root foled for apache2 server
+       file: path=/var/html state=directory mode=0777
+
+     - name: Configure apache web root folder
+       when: ansible_distribution == "Ubuntu" and ansible_os_family == "Debian"
+       copy: src=000-default.conf dest=/etc/apache2/sites-available/000-default.conf
+
+     - name: Grant permission for custom root folder
+       when: ansible_distribution == "Ubuntu" and ansible_os_family == "Debian"
+       copy: src=apache2.conf dest=/etc/apache2/apache2.conf
+
+     - name: Restart apache2 service
+       when: ansible_distribution == "Ubuntu" and ansible_os_family == "Debian"
+       service: name=apache2 state=restarted
+
+     - name: Fix the metalink issue in Centos
+       when: ansible_distribution == "CentOS" and ansible_os_family == "RedHat"
+       copy: src=epel.repo dest=/etc/yum.repos.d/epel.repo
+ 
+     - name: Install extra packages for Enterprise Linux (EPEL)in centos machine
+       when: ansible_distribution == "CentOS" and ansible_os_family == "RedHat"
+       yum: name=epel-release state=latest
+
+
+     - name: Install httpd in centos machine
+       when: ansible_distribution == "CentOS" and ansible_os_family == "RedHat"
+       yum: name=httpd state=latest update_cache=yes
+
+     - name: Start httpd service
+       when: ansible_distribution == "CentOS" and ansible_os_family == "RedHat"
+       service: name=httpd state=started
+
+     - name: Restart httpd service
+       when: ansible_distribution == "CentOS" and ansible_os_family == "RedHat"
+       service: name=httpd state=restarted
+
+
+     - name: Capture the IP Address of the ansible nodes
+       command: hostname -i
+       register: ip_addr
+
+     - name: Capture the Hostname of the ansible nodes
+       command: hostname
+       register: hostname
+ 
+
+     - name: Deploy our own custom html page
+       template: src=index.html.j2 dest=/var/html/index.html
+
+
+- name: This play will test apache2 deployments
+  hosts: localhost
+  tasks:
+    - name: Navigate to apache2 webpage
+      shell: "curl http://localhost:800{{item}}"
+      with_sequence: start=1 end=2
+
+

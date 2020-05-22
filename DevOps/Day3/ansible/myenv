@@ -1,0 +1,4 @@
+env:
+  JAVA_HOME: /home/jenkins/java
+  M2_HOME: /usr/share/maven
+

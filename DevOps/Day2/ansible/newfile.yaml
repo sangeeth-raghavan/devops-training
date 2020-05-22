@@ -1,0 +1,8 @@
+- name: This play will ping all docker containers
+  hosts: all
+  tasks:
+    - name: Ping the container
+      ping: 
+
+    - name:  
+      command: hostname -i
